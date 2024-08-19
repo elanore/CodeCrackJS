@@ -143,11 +143,12 @@
 
 //normaly function
 
-// function getMaxNumber(str){
-//     const numbers =str.split('-').map(Number);
-//     return Math.max(...numbers);
+// function getMaxNumber(str) {
+//   const numbers = str.split("-").map(Number);
+//   return Math.max(...numbers);
 // }
 // const maxNumbers = arr.map(getMaxNumber);
-// console.log(maxNumbers,"Max number from string");
+// console.log(maxNumbers, "Max number from string");
 
+//call apply and bind
 
