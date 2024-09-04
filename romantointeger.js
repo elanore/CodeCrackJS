@@ -25,4 +25,4 @@ function romanToInt(s) {
   return total;
 }
 
-console.log(romanToInt("LVIII"),"roman to integer");
+console.log(romanToInt("V"),"roman to integer");
