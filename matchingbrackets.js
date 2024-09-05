@@ -32,4 +32,5 @@ function isValid(s) {
   return stack.length === 0;
 }
 
-console.log("is brackets matching ", isValid("({})"));
+console.log("is brackets matching 1 ", isValid("({})"));
+console.log("is brackets matching 2 ", isValid("({)}"));
