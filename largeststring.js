@@ -13,7 +13,7 @@ var longestCommonPrefix = function (strs) {
   return prefix;
 };
 
-console.log(
+console.log("longest common prefix string  is ",
   longestCommonPrefix(["interview", "intermediate", "internal", "internet"]),
-  "longest common prefix string "
+  
 );
