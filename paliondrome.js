@@ -9,6 +9,6 @@ var isPalindrome = function (s) {
 };
 
 // Example test cases
-console.log(isPalindrome("A man, a plan, a canal: Panama")); // Output: true
-console.log(isPalindrome("race a car")); // Output: false
-console.log(isPalindrome(" ")); // Output: true
+console.log("paliondrome", isPalindrome("A man, a plan, a canal: Panama")); 
+console.log("paliondrome", isPalindrome("race a car")); 
+console.log("paliondrome", isPalindrome(" ")); 
