@@ -1,39 +1,41 @@
 var wordPattern = function (pattern, s) {
-  // Split the string s into an array of words
+  // Split the string `s` into an array of words
   let words = s.split(" ");
 
-  // If the number of words doesn't match the pattern's length, return false
+  // If the length of pattern and words are different, return false
   if (pattern.length !== words.length) {
     return false;
   }
 
-  // Create two maps: one for pattern-to-word and one for word-to-pattern
-  let patternToWord = {};
-  let wordToPattern = {};
+  // Create two maps to store the mappings from pattern to words and vice versa
+  let charToWordMap = new Map();
+  let wordToCharMap = new Map();
 
-  // Loop through the pattern and words at the same time
+  // Loop through each character in the pattern
   for (let i = 0; i < pattern.length; i++) {
-    let letter = pattern[i];
+    let char = pattern[i];
     let word = words[i];
 
-    // Check if the letter is already mapped to a word
-    if (patternToWord[letter]) {
-      // If the current word doesn't match the previously mapped word, return false
-      if (patternToWord[letter] !== word) {
+    // If the current character is already mapped to a word, check for consistency
+    if (charToWordMap.has(char)) {
+      if (charToWordMap.get(char) !== word) {
         return false;
       }
     } else {
-      // If the word is already mapped to another letter, return false
-      if (wordToPattern[word]) {
+      charToWordMap.set(char, word);
+    }
+
+    // If the current word is already mapped to a character, check for consistency
+    if (wordToCharMap.has(word)) {
+      if (wordToCharMap.get(word) !== char) {
         return false;
       }
-      // Create a new mapping from the letter to the word
-      patternToWord[letter] = word;
-      wordToPattern[word] = letter;
+    } else {
+      wordToCharMap.set(word, char);
     }
   }
 
-  // If all mappings are valid, return true
+  // If all checks pass, the pattern follows the string `s`
   return true;
 };
 
