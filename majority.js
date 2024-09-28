@@ -16,5 +16,5 @@ var majorityElement = function (numsArray) {
 };
 
 // Example usage - Use a different name for the array (numsArray)
-let numsArray = [2, 2, 1, 1, 1, 2, 2]; // Declare the array
+let numsArray = [2, 2, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 1]; // Declare the array
 console.log(majorityElement(numsArray)); // Output: 2
