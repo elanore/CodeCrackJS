@@ -25,6 +25,7 @@ console.log(
   "Input: '1001' - Expected output: 2, Actual output:",
   minChanges("1001")
 ); // Expected output: 2
+console.log(
 
 console.log(
   "Input: '0000' - Expected output: 0, Actual output:",
