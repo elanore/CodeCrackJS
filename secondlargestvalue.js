@@ -1,11 +1,13 @@
-const intArray = [1, 5, 6, 7,3, 9];
-const largestValue = (arr) => {
-  firstLagestValue = Math.max(...arr);
-  index = arr.indexOf(firstLagestValue);
-  arr.splice(index, 1);
-  secondLagestValue = Math.max(...arr);
-  //return (firstLagestValue);
+const intArray = [1, 2, 3, 6, 7, 9];
 
-  return secondLagestValue;
+const findSecondLargest = (intArray) => {
+  const maxValue = Math.max(...intArray); // Find the largest value
+
+  const filteredArray = intArray.filter((num) => num !== maxValue); // Filter out the largest value
+
+  const secondLargest = Math.max(...filteredArray); // Find the largest in the filtered array
+
+  console.log("Second largest value is", secondLargest);
 };
-console.log(largestValue(intArray), "second largest value");
+
+findSecondLargest(intArray);
