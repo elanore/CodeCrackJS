@@ -1,16 +1,26 @@
-let arrynum = [2, 6, 8, 9, 1, 4, 5];
-let target = 10;
-let found = false; // Flag to break out of the outer loop
-
-for (let i = 0; i < arrynum.length - 1; i++) {
-  for (let j = i + 1; j < arrynum.length; j++) {
-    if (arrynum[i] + arrynum[j] === target) {
-      console.log(
-        `Indexes: (${i}, ${j}) | Values: (${arrynum[i]}, ${arrynum[j]})`
-      );
-      found = true; // Set the flag to true when a pair is found
-      break; // Break out of the inner loop
+function findPair(arr, target) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        console.log(
+          "Indexes: (" +
+            i +
+            ", " +
+            j +
+            ") | Values: (" +
+            arr[i] +
+            ", " +
+            arr[j] +
+            ")"
+        );
+        return; // Exit the function when a pair is found
+      }
     }
   }
-  if (found) break; // Break out of the outer loop if a pair was found
+  console.log("No pair found");
 }
+
+let arrynum = [2, 6, 8, 9, 1, 4, 5];
+let target = 10;
+
+findPair(arrynum, target);
