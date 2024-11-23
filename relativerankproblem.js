@@ -1,27 +1,30 @@
-var findRelativeRanks = function (score) {
-  // Create an array of indices sorted by the score values in descending order
-  let sortedIndices = [...score.keys()].sort((a, b) => score[b] - score[a]);
+function findRelativeRanks(score) {
+  // Step 1: Get the sorted indices based on scores (highest first)
+  let sortedIndices = score
+    .map((value, index) => index) // Create an array of indices
+    .sort((a, b) => score[b] - score[a]); // Sort indices by scores in descending order
 
-  // Initialize the answer array with the same length as the score array
-  let answer = new Array(score.length);
+  // Step 2: Create an empty array for the results
+  let result = new Array(score.length);
 
-  // Iterate through the sorted indices and assign the ranks
+  // Step 3: Assign ranks based on sorted order
   for (let i = 0; i < sortedIndices.length; i++) {
     if (i === 0) {
-      answer[sortedIndices[i]] = "Gold Medal";
+      result[sortedIndices[i]] = "Gold Medal";
     } else if (i === 1) {
-      answer[sortedIndices[i]] = "Silver Medal";
+      result[sortedIndices[i]] = "Silver Medal";
     } else if (i === 2) {
-      answer[sortedIndices[i]] = "Bronze Medal";
+      result[sortedIndices[i]] = "Bronze Medal";
     } else {
-      answer[sortedIndices[i]] = (i + 1).toString(); // Rank is the (i + 1)-th position
+      result[sortedIndices[i]] = (i + 1).toString(); // Convert rank to string
     }
   }
 
-  return answer;
-};
+  // Step 4: Return the result
+  return result;
+}
 
-// Example
+// Example usage
 let score = [10, 3, 8, 9, 4];
 console.log(findRelativeRanks(score));
-// Output: ["Gold Medal","5","Bronze Medal","Silver Medal","4"]
+// Output: ["Gold Medal", "5", "Bronze Medal", "Silver Medal", "4"]
