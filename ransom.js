@@ -1,26 +1,20 @@
 var canConstruct = function (ransomNote, magazine) {
-  let magazineLetters = {};
+  // Convert magazine into an array of characters
+  let magazineArray = magazine.split("");
 
-  // Count each letter in the magazine
-  for (let char of magazine) {
-    if (!magazineLetters[char]) {
-      magazineLetters[char] = 0;
-    }
-    magazineLetters[char]++;
-  }
-
-  // Check if ransomNote can be constructed
+  // Check each letter in ransomNote
   for (let char of ransomNote) {
-    if (!magazineLetters[char] || magazineLetters[char] <= 0) {
-      return false; // If letter not available or already used up
+    let index = magazineArray.indexOf(char); // Find the letter in magazine
+    if (index === -1) {
+      return false; // Letter not found in magazine
     }
-    magazineLetters[char]--; // Use one occurrence of the letter
+    magazineArray.splice(index, 1); // Remove the used letter
   }
 
-  return true;
+  return true; // All letters found
 };
 
 // Example usage:
-console.log("ransom", canConstruct("a", "b")); // Output: false
-console.log("ransom", canConstruct("aa", "ab")); // Output: false
-console.log("ransom", canConstruct("aa", "aab")); // Output: true
+console.log(canConstruct("a", "b")); // Output: false
+console.log(canConstruct("aa", "ab")); // Output: false
+console.log(canConstruct("aa", "aab")); // Output: true
