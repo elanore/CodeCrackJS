@@ -25,4 +25,10 @@ const memoizedAdd = memoize(add);
 const memoizedFactorial = memoize(factorial);
 
 // Examples
-console.log(memoizedAdd(2, 
+console.log(memoizedAdd(2, 3)); // 5 (calculated)
+console.log(memoizedAdd(2, 3)); // 5 (cached)
+console.log(memoizedAdd(1, 4)); // 5 (calculated)
+
+console.log(memoizedFactorial(5)); // 120 (calculated)
+console.log(memoizedFactorial(5)); // 120 (cached)
+console.log(memoizedFactorial(4)); // 24 (calculated)
