@@ -1,22 +1,23 @@
-var findLHS = function (nums) {
-  let numMap = new Map();
+function findLHS(nums) {
+  let counts = {};
   let maxLen = 0;
 
-  // Create a frequency map of the elements
+  // Count the frequency of each number
   for (let num of nums) {
-    numMap.set(num, (numMap.get(num) || 0) + 1);
+    counts[num] = (counts[num] || 0) + 1;
   }
 
-  // Iterate through the map to find the longest harmonious subsequence
-  for (let [key, value] of numMap) {
-    if (numMap.has(key + 1)) {
-      maxLen = Math.max(maxLen, value + numMap.get(key + 1));
+  // Check for harmonious subsequences
+  for (let num in counts) {
+    let nextNum = parseInt(num) + 1; // Check for the next number
+    if (counts[nextNum]) {
+      maxLen = Math.max(maxLen, counts[num] + counts[nextNum]);
     }
   }
 
   return maxLen;
-};
+}
 
-// Example usage:
+// Example usage
 const inputArray = [1, 3, 2, 2, 5, 2, 3, 7];
 console.log("LHS is", findLHS(inputArray)); // Output: 5
