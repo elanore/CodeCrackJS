@@ -1,14 +1,17 @@
 function hasPathSum(root, targetSum) {
-  // If root is null, there's no path
+  // If the tree is empty, there's no path
   if (!root) return false;
 
-  // If it's a leaf node, check if the path sum equals targetSum
-  if (!root.left && !root.right) return root.val === targetSum;
+  // If this is a leaf node (no left or right child)
+  if (!root.left && !root.right) {
+    // Check if the value of this node equals the remaining target sum
+    return root.val === targetSum;
+  }
 
-  // Recursively check left and right subtrees with the updated targetSum
+  // Check the left and right subtrees with the updated target sum
+  const remainingSum = targetSum - root.val;
   return (
-    hasPathSum(root.left, targetSum - root.val) ||
-    hasPathSum(root.right, targetSum - root.val)
+    hasPathSum(root.left, remainingSum) || hasPathSum(root.right, remainingSum)
   );
 }
 
@@ -35,4 +38,4 @@ const root = {
 };
 
 const targetSum = 22;
-console.log("Has path sum:", hasPathSum(root, targetSum));
+console.log("Has path sum:", hasPathSum(root, targetSum)); // Output: true
