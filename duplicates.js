@@ -1,24 +1,13 @@
-function containsDuplicate(nums) {
-  const numSet = new Set();
-
-  for (let i = 0; i < nums.length; i++) {
-    if (numSet.has(nums[i])) {
-      return true;
+function removeDuplicates(arr) {
+  const unique = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!unique.includes(arr[i])) {
+      unique.push(arr[i]);
     }
-    numSet.add(nums[i]);
   }
-
-  return false;
+  return unique;
 }
 
-// Example 1:
-console.log("contains duplicates ", containsDuplicate([1, 2, 3, 1])); // Output: true
-
-// Example 2:
-console.log("contains duplicates ", containsDuplicate([1, 2, 3, 4])); // Output: false
-
-// Example 3:
-console.log(
-  "contains duplicates ",
-  containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])
-); // Output: true
+const input = [1, 2, 2, 3, 4, 4, 5];
+const result = removeDuplicates(input);
+console.log(result); // Output: [1, 2, 3, 4, 5]
