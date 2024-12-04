@@ -15,5 +15,5 @@ function containsVowels(inputString) {
 }
 
 // Get input from the user
-const inputString = prompt("Enter a string to check for vowels:");
+//const inputString = prompt("Enter a string to check for vowels:");
 containsVowels(inputString);

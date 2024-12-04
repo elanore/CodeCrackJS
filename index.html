@@ -101,8 +101,17 @@
 
     <script src="./sumusingprototype.js"></script>
     <script src="./vowels.js"></script>
+    <script src="generateAlphanumeric.js"></script>
   </head>
   <body>
     <h1>Code Crack JS</h1>
+    <form name="randomGenerator">
+      <input
+        type="button"
+        value="Generate captcha"
+        onClick="generateRandom();"
+      />
+      <h3 id="randomChar" style="color: blue"></h3>
+    </form>
   </body>
 </html>
