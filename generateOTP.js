@@ -4,7 +4,7 @@ function generateRandomotp() {
   let result = "";
   for (let i = 0; i < strlength; i++) {
     let randNum = Math.floor(Math.random() * chars.length);
-    result = result + chars.charAt(randNum);
+    result = result + chars.charAt(randNum); //result = result + chars[randNum]; also can be used
   }
   document.getElementById("otp").innerHTML = result;
 }
